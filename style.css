@@ -1,0 +1,825 @@
+
+/*Removing all the basic default styling*/
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* body styled so that it is not scrollable to left right */
+
+body {
+    background: #02040A;
+    color: #F5F8FF;
+    font-family: "Quantico", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+
+/* main content section styling  */
+
+main {
+    min-height: 100vh;
+
+/*     leaving room for fixed bar */
+     margin-left: 260px;
+/*     preventing the main from becoming wider than screen */
+    width: calc(100% - 260px);
+}
+
+#content {
+    position: relative;
+    z-index: 2;
+    text-align:center;
+    width: min(700px,90%);
+    border-radius:15px;
+    height: 500px;
+    padding:50px;
+
+/*     backdrop-filter: blur(10px); */
+
+
+}
+
+/* content main section */
+
+/* paragraph styling  */
+
+#content p {
+    max-width:700px;
+    height:100px;
+
+    display:flex;
+    justify-content:center;
+
+    animation:
+    holoReveal 2s cubic-bezier(0.16, 1, 0.3, 1) both,
+    holoGlow 0.4s linear infinite;
+
+}
+
+
+/*#content*/ h1 {
+opacity:0.9;
+color:#20D6DF;
+font-size: 70px;
+
+font-family: "Stack Sans Notch", sans-serif;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
+
+/* background-image: url("assets/images/gradient.jpg"); */
+
+border-radius:15px;
+padding:10px;
+/* border: 1px solid #20D6DF; */
+
+white-space: nowrap; /*Makes it in one line*/
+font-weight:700px;
+
+margin-bottom:30px;
+/*     animation: faceHoloReveal 3s cubic-bezier(0.16, 1, 0.3, 1) both; */
+animation:
+faceHoloReveal 1s ease-in-out both,
+flickerHigherOpacity 3s;
+}
+
+#showkase {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Particle Effects */
+
+#particle-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.showkase-content {
+    position: relative;
+    z-index: 1;
+}
+
+.p1 {
+    font-size: 20px;
+    margin-bottom: 14px;
+    color: rgba(32, 214, 223, 0.52);
+    animation:
+    holoReveal 2s cubic-bezier(0.16, 1, 0.3, 1) both,
+    holoGlow 0.4s linear infinite;
+
+}
+
+ol {
+    font-size: 20px;
+    margin-bottom: 14px;
+    color: rgba(32, 214, 223, 0.92);
+    animation:
+    holoReveal 2s cubic-bezier(0.16, 1, 0.3, 1) both,
+    holoGlow 0.4s linear infinite;
+}
+
+.p2 {
+    font-size: 18px;
+    margin-bottom: 14px;
+    color: rgba(32, 214, 223, 0.42);
+    animation:
+    holoReveal 2s cubic-bezier(0.16, 1, 0.3, 1) both,
+    holoGlow 0.4s linear infinite;
+}
+
+.p3 {
+    font-size: 25px;
+    color: rgba(120, 190, 255, 0.72);
+/*     box-shadow: 0 0 2px rgba(32, 214, 223, 0.4); */
+/*     margin-bottom: 30px; */
+animation:
+holoReveal 2s cubic-bezier(0.16, 1, 0.3, 1) both,
+holoGlow 0.4s linear infinite;
+
+}
+
+.showkasebt {
+/*     margin-top:30px; */
+    busize: 40px;
+    background-color: rgba(32, 214, 223, 0.02);
+    color:#20D6DF;
+    padding: 10px 15px;
+    border-radius:5px;
+    border: 1px solid rgba(120, 190, 255, 0.72);
+    animation:faceHoloReveal 1s ease-in-out both;
+    text-decoration:none;
+/*     background-image: url("assets/images/neonish.png"); */
+    opacity:0.9;
+
+}
+
+.showkasebt:hover {
+    position:relative;
+    overflow:hidden;
+    background-color: rgba(32, 214, 223, 0.92);
+    color:#02040A;
+    border: 2px solid rgba(120, 190, 255, 0.92);
+
+}
+
+
+footer {
+    margin-left:260px;
+    display:flex;
+    justify-content:center;
+    padding: 40px;
+    gap: 40px;
+
+    animation: flickerHigherOpacity 4s linear infinite;
+}
+
+/* Navigation Bar Styling */
+
+nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    gap:30px;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 0 3px rgba(32, 214, 223, 0.4);
+    animation: navSlideIn 0.8s ease-out;
+    z-index:0;
+    isolation: isolate;
+}
+
+nav::before {
+    content:"";
+    position:absolute;
+    inset: -5px;
+    opacity:5%;
+    border-radius: 15px;
+    background: linear-gradient(
+        135deg,
+        #3AA7FF,
+        #20D6DF
+    );
+    filter: blur(20px);
+    z-index:-1;
+}
+
+.navbarImg {
+    width: 260px;
+    left:0;
+    top:0;
+    position:fixed;
+    height: 100vh;
+    overflow: hidden;
+
+/*     background-image: url("assets/images/navBarSection.png"); */
+/*     background-repeat: repeat-y; */
+/*     background-size: 460px auto; */
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        black 0%,
+        black 60%,
+        transparent 100%
+                               );
+
+    mask-image: linear-gradient(
+        to right,
+        black 0%,
+        black 60%,
+        transparent 100%
+                       );
+
+    animation: navImageSlideIn 0.8s ease-in-out;
+/*     animation: dnaScroll 20s linear infinite; */
+}
+
+.navbarImg img {
+    transform: rotate(0deg);
+    width:150%;
+    height:150%;
+    object-fit: cover;
+    animation: flickerLowOpacity 4.7s linear infinite;
+    overflow:hidden;
+
+}
+
+.dnaTrack {
+    will-change: transform;
+    display:flex;
+    flex-direction: column;
+    width: 200%;
+    animation: dnaScroll 20s linear infinite;
+}
+
+.dnaTrack img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+
+.navDiv {
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+}
+
+nav a {
+    padding:12px 20px;
+    color:#00A6B8;
+    text-decoration:none;
+    border-radius: 10px;
+    transition: color 0.5s, background 0.15s;
+    opacity:0;
+    animation: linkFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+
+}
+
+.navDiv a {
+    color: #00A6B8;
+    text-decoration:none;
+}
+
+nav a:hover {
+    color:#3AA7FF;
+/*    background: rgba(58, 167, 255, 0.08);*/
+    box-shadow: 0 0 5px rgba(58, 167, 255, 0.3);
+    border-radius: 10px;
+    text-decoration: bold;
+    backdrop-filter: blur(0px);
+}
+
+.navDiv a:hover {
+/*    background: rgba(138, 255, 193, 0.08);*/
+    box-shadow: 0 0 5px rgba(32, 214, 223, 0.3);
+    border-radius: 10px;
+    color:#20D6DF;
+}
+
+.logo {
+    font-size: 22px;
+    color: #3AA7FF;
+    box-shadow: 0 0 3px rgba(58, 167, 255,0.4);
+
+    font-family: "Stack Sans Notch", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+
+/* Overveiw Section */
+
+/* overveiw styling  */
+
+.overview {
+    min-height: 100vh;
+
+    width: 100%;
+
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+/*     left: 50%; */
+/*     top: 50%; */
+
+/*     transform: translate(-50%, -50%); */
+
+    border-radius: 15px;
+
+    box-shadow: 0 0 5px rgba(58, 167, 255,0.4);
+    overflow: hidden;
+}
+
+/* Psuedo Elemenet for Overview */
+.overview:before {
+    content:"";
+    position: absolute;
+
+    z-index: 1;
+    pointer-events: none;
+
+/*     top:0; */
+/*    left:0; (messed up and didnt work for me ofc)*/
+
+    width: 1100px;
+    height: 1150px;
+
+    background: radial-gradient(
+        ellipse,
+
+        rgba(0, 166, 184, 0.06) 20%,
+        transparent 70%
+    )
+}
+
+/*.overview:before {
+    content:"";
+    position: absolute;
+
+    z-index: 1;
+    pointer-events: none;
+
+    width: 1100px;
+    height: 1150px;
+
+    background: radial-gradient(
+        ellipse,
+
+        rgba(0, 166, 184, 0.06) 60%,
+        transparent 30%
+    )
+}*/
+
+/* Hologram Image */
+
+.overviewImg {
+    position: absolute;
+/*     top: 0; */
+/*     right: 0; */
+
+    width: 100%;
+    height: 100vh;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 0;
+
+}
+
+.overviewImg1 {
+    animation:
+    flickerLowOpacity 4.7s linear infinite,
+    faceHoloReveal 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.3s;
+}
+
+.overviewImg2 {
+    animation: flickerLowOpacity 4.7s linear infinite,
+    faceHoloReveal 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.8s;
+
+}
+
+.overviewImg img {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    opacity:0.45;
+
+/*     border: 2px solid #20D6DF; */
+}
+
+
+/* ShowKase Main Styling Section */
+
+.showkase {
+
+        background-image: url(assets/images/showkasebg.png);
+        background-size: cover;
+        min-height: 100vh;
+        width: 100%;
+
+        position: relative;
+        isolation: isolate;
+
+        display: grid;
+/*         flex-direction:row; */
+/*         align-items: center; */
+        justify-content: center;
+        padding:70px 50px;
+
+        /*     left: 50%; */
+        /*     top: 50%; */
+
+        /*     transform: translate(-50%, -50%); */
+
+        border-radius: 15px;
+
+        box-shadow: 0 0 5px rgba(58, 167, 255,0.4);
+        overflow: hidden;
+}
+
+#showkase h1 {
+opacity:0.9;
+color:#20D6DF;
+font-size: 70px;
+
+text-align:center;
+
+font-family: "Stack Sans Notch", sans-serif;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
+
+/* background-image: url("assets/images/gradient.jpg"); */
+
+border-radius:15px;
+padding:10px;
+/* border: 1px solid #20D6DF; */
+
+white-space: nowrap; /*Makes it in one line*/
+font-weight:700px;
+
+margin-bottom:30px;
+/*     animation: faceHoloReveal 3s cubic-bezier(0.16, 1, 0.3, 1) both; */
+animation:
+faceHoloReveal 1s ease-in-out both,
+flickerHigherOpacity 3s;
+}
+
+.showkaseImg {
+    display:flex;
+    flex-direction:row;
+    gap: 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 5px rgba(58, 167, 255,0.4);
+/*     opacity:0.8; */
+    margin:10px;
+}
+
+.showkaseImg img {
+/*     animation: flickerHigherOpacity 0.001s infinite; */
+/*     display:block; */
+/*     padding:20px; */
+    margin:20px;
+    width:500px;
+    border-radius: 25px;
+/*     opacity:0.8; */
+
+}
+
+
+
+/* The Working stylings */
+
+.working {
+    background-image: url(assets/images/lights2.png);
+    background-size: cover;
+
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
+
+    overflow: hidden;
+    animation:
+}
+
+.working-content {
+    backdrop-filter: blur(50px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border-radius:30px;
+    padding:50px 200px;
+
+}
+
+.workingImg {
+    width: min(45%, 600px);
+    height: auto;
+
+    margin-left: 0;
+
+    flex-shrink: 1;
+
+    animation: engine 10s ease-in-out both infinite;
+}
+
+
+.technology {
+
+    background-image: url(assets/images/showkasebg.png);
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+    isolation: isolate;
+
+    display: grid;
+    /*         flex-direction:row; */
+    /*         align-items: center; */
+    justify-content: center;
+    padding:70px 50px;
+
+    /*     left: 50%; */
+    /*     top: 50%; */
+
+    /*     transform: translate(-50%, -50%); */
+
+    border-radius: 15px;
+
+    box-shadow: 0 0 5px rgba(58, 167, 255,0.4);
+    overflow: hidden;
+}
+
+.tech-content {
+    backdrop-filter: blur(5px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border-radius:30px;
+    padding:50px 40px;
+    gap:20px;
+
+}
+/* Animations */
+
+/* Navigation Bar and Image animation */
+
+@keyframes navSlideIn {
+    from {
+        transform: translate(-300px,-50%);
+        opacity:0;
+    }
+
+    to {
+        transform: translate(0,-50%);
+        opacity:1;
+    }
+}
+
+/* Random Flickerings; */
+
+@keyframes flickerLowOpacity {
+    0%   { opacity: 0.30; }
+    6%   { opacity: 0.30; }
+
+    7%   { opacity: 0.12; }
+    8%   { opacity: 0.32; }
+
+    23%  { opacity: 0.30; }
+
+    24%  { opacity: 0.28; }
+    25%  { opacity: 0.31; }
+
+    52%  { opacity: 0.30; }
+
+    53%  { opacity: 0.18; }
+    54%  { opacity: 0.28; }
+    56%  { opacity: 0.25; }
+    57%  { opacity: 0.32; }
+
+    81%  { opacity: 0.30; }
+
+    82%  { opacity: 0.20; }
+    83%  { opacity: 0.30; }
+
+    100% { opacity: 0.30; }
+}
+
+
+@keyframes flickerHigherOpacity {
+    0%   { opacity: 0.80; }
+    6%   { opacity: 0.90; }
+
+    7%   { opacity: 0.72; }
+    8%   { opacity: 0.62; }
+
+    23%  { opacity: 0.80; }
+
+    24%  { opacity: 0.98; }
+    25%  { opacity: 0.31; }
+
+    52%  { opacity: 0.70; }
+
+    53%  { opacity: 0.98; }
+    54%  { opacity: 0.58; }
+    56%  { opacity: 0.95; }
+    57%  { opacity: 0.32; }
+
+    81%  { opacity: 0.360; }
+
+    82%  { opacity: 0.90; }
+    83%  { opacity: 0.90; }
+
+    100% { opacity: 0.50; }
+}
+
+
+@keyframes linkFadeIn {
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+
+@keyframes dnaScroll {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes navImageSlideIn {
+    from {
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+/* Paragraph Anims Holographic */
+@keyframes holoReveal {
+    from {
+        opacity:0;
+        transform: translateY(18px);
+        filter: blur(6px);
+        letter-spacing: 3px;
+    }
+
+    to {
+        opacity:1;
+        transform: translateY(0);
+        filter: blue(0);
+        letter-spacing: normal;
+    }
+}
+
+@keyframes holoGlow {
+    0%, 100% {
+        text-shadow:
+        0 0 3px rgba(0, 166, 184, 0.25);
+    }
+
+    43% {
+        text-shadow:
+        0 0 5px rgba(0, 166, 184, 0.35);
+    }
+
+    44% {
+        text-shadow:
+        0 0 12px rgba(32, 214, 223, 0.75);
+    }
+
+    46% {
+        text-shadow:
+        0 0 4px rgba(0, 166, 184, 0.3);
+    }
+
+    78% {
+        text-shadow:
+        0 0 8px rgba(58, 167, 255, 0.45);
+    }
+}
+
+/* Face Holoreveal  */
+
+@keyframes faceHoloReveal {
+    from {
+/*         opacity:0; */
+        transform: translateY(18px);
+        filter: blur(6px);
+/*         letter-spacing: 3px; */
+    }
+
+    to {
+/*         opacity:1; */
+        transform: translateY(0);
+        filter: blue(0);
+/*         letter-spacing: normal; */
+    }
+}
+
+
+nav a:nth-child(1){
+    animation-delay: 0.5s;
+}
+
+nav a:nth-child(2){
+    animation-delay: 0.6s;
+}
+
+nav a:nth-child(3){
+    animation-delay: 0.7s;
+}
+
+nav a:nth-child(4){
+    animation-delay: 0.8s;
+}
+
+nav a:nth-child(5){
+    animation-delay: 0.9s;
+}
+
+nav a:nth-child(6){
+    animation-delay: 0.10s;
+}
+
+
+/* The Engine */
+
+@keyframes engine {
+    from {
+        opacity:0.5;
+        transform: rotate(0deg);
+
+    }
+
+    50% {
+        opacity:1;
+/*         transform: rotate(360deg); */
+
+
+    }
+
+    100% {
+        opacity:0.5;
+/*         transform: rotate(720deg); */
+    }
+}
